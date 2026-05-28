@@ -52,9 +52,19 @@
     }
 
     #result {
-      margin-top: 25px;
-      color: #d1d5db;
-      font-size: 18px;
+      margin-top: 30px;
+      font-size: 20px;
+      line-height: 1.6;
+    }
+
+    #result a {
+      color: #60a5fa;
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    #result a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -77,15 +87,21 @@
     const input = document.getElementById("coordinates");
     const result = document.getElementById("result");
 
-    const secretCoordinates = "40.25278271099681, 58.43981227476883";
-
     function checkCoordinates() {
       const userInput = input.value.trim();
 
-      if (userInput === secretCoordinates) {
+      if (
+        userInput.includes("40.") &&
+        userInput.includes("58.")
+      ) {
 
-        window.location.href =
-          "https://docs.google.com/document/d/1S1t4hVbADYgXoiYl_07qXMsFMwbfpPcdsv77CIuHS7U/copy?tab=t.0";
+        result.innerHTML = `
+          Access granted.<br><br>
+
+          <a href="https://docs.google.com/document/d/1S1t4hVbADYgXoiYl_07qXMsFMwbfpPcdsv77CIuHS7U/copy?tab=t.0" target="_blank">
+            https://docs.google.com/document/d/1S1t4hVbADYgXoiYl_07qXMsFMwbfpPcdsv77CIuHS7U/copy?tab=t.0
+          </a>
+        `;
 
       } else {
 
