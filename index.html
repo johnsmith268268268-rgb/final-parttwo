@@ -33,6 +33,7 @@
     h1 {
       font-size: 38px;
       margin-bottom: 20px;
+      text-transform: lowercase;
     }
 
     input {
@@ -51,11 +52,9 @@
     }
 
     #result {
-      margin-top: 30px;
-      font-size: 20px;
-      line-height: 1.6;
+      margin-top: 25px;
       color: #d1d5db;
-      white-space: pre-wrap;
+      font-size: 18px;
     }
   </style>
 </head>
@@ -84,20 +83,23 @@
       const userInput = input.value.trim();
 
       if (userInput === secretCoordinates) {
-        result.innerHTML = `
-There have been two morons who've taken it upon themselves to stop our work for him. They will be eliminated.
 
-END OF PART TWO.
-        `;
+        window.location.href =
+          "https://docs.google.com/document/d/1S1t4hVbADYgXoiYl_07qXMsFMwbfpPcdsv77CIuHS7U/copy?tab=t.0";
+
       } else {
+
         result.innerHTML = "Incorrect coordinates.";
+
       }
     }
 
     input.addEventListener("keydown", function(event) {
+
       if (event.key === "Enter") {
         checkCoordinates();
       }
+
     });
   </script>
 
