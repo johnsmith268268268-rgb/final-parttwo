@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Coordinates</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: black;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
+
+    .container {
+      width: 600px;
+      background: #111;
+      padding: 32px;
+      border-radius: 18px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.7);
+    }
+
+    h1 {
+      font-size: 38px;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 18px;
+      border-radius: 12px;
+      border: 1px solid #222;
+      background: #050505;
+      color: white;
+      font-size: 18px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #444;
+    }
+
+    #result {
+      margin-top: 30px;
+      font-size: 20px;
+      line-height: 1.6;
+      color: #d1d5db;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>enter coordinates</h1>
+
+    <input
+      type="text"
+      id="coordinates"
+      placeholder="Enter coordinates"
+      autocomplete="off"
+    />
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const input = document.getElementById("coordinates");
+    const result = document.getElementById("result");
+
+    const secretCoordinates = "40.25278271099681, 58.43981227476883";
+
+    function checkCoordinates() {
+      const userInput = input.value.trim();
+
+      if (userInput === secretCoordinates) {
+        result.innerHTML = `
+There have been two morons who've taken it upon themselves to stop our work for him. They will be eliminated.
+
+END OF PART TWO.
+        `;
+      } else {
+        result.innerHTML = "Incorrect coordinates.";
+      }
+    }
+
+    input.addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        checkCoordinates();
+      }
+    });
+  </script>
+
+</body>
+</html>
